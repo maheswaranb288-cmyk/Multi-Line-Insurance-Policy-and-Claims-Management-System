@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Open__c</fullName>
+    <formula>NOT(ISPICKVAL(Status__c, "Paid") || ISPICKVAL(Status__c, "Denied"))</formula>
+    <label>Is Open</label>
+    <type>Checkbox</type>
+</CustomField>

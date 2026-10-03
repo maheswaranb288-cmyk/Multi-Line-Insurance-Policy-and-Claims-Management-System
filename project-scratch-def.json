@@ -1,0 +1,13 @@
+{
+  "orgName": "UPC-360 Demo",
+  "edition": "Developer",
+  "features": ["PlatformEventsHighVolume", "EnableSetPasswordInApi"],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    }
+  }
+}

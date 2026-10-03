@@ -1,0 +1,90 @@
+<template>
+    <lightning-card>
+        <div slot="title" class="header">
+            <lightning-icon icon-name="standard:case" size="small"></lightning-icon>
+            <span class="header__title">UPC-360 &middot; Claims Command Center</span>
+            <span class="live">
+                <span class={liveClass}></span>
+                <span class="live__label">{liveLabel}</span>
+            </span>
+        </div>
+        <lightning-button-icon
+            slot="actions"
+            icon-name="utility:refresh"
+            alternative-text="Refresh"
+            title="Refresh"
+            onclick={handleRefresh}>
+        </lightning-button-icon>
+
+        <div class="body">
+            <!-- KPI ROW -->
+            <div class="kpis">
+                <c-claim-kpi-tile
+                    label="Open Claims"
+                    value={kpi.openCount}
+                    icon-name="standard:case"
+                    accent="brand">
+                </c-claim-kpi-tile>
+                <c-claim-kpi-tile
+                    label="High / Critical"
+                    value={kpi.highPriorityCount}
+                    icon-name="standard:incident"
+                    accent="warning">
+                </c-claim-kpi-tile>
+                <c-claim-kpi-tile
+                    label="Avg Cycle (hrs)"
+                    value={kpi.avgProcessingHours}
+                    icon-name="standard:metrics"
+                    accent="success">
+                </c-claim-kpi-tile>
+                <c-claim-kpi-tile
+                    label="Closed (30d)"
+                    value={kpi.closedLast30}
+                    icon-name="standard:task2"
+                    accent="success">
+                </c-claim-kpi-tile>
+            </div>
+
+            <!-- LOADING -->
+            <template lwc:if={isLoading}>
+                <div class="state">
+                    <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+                </div>
+            </template>
+
+            <!-- ERROR -->
+            <template lwc:if={error}>
+                <div class="state state_error">
+                    <lightning-icon icon-name="utility:error" size="x-small"></lightning-icon>
+                    <span>{error}</span>
+                </div>
+            </template>
+
+            <!-- CLAIMS GRID -->
+            <template lwc:if={hasClaims}>
+                <div class="grid">
+                    <template for:each={claims} for:item="claim">
+                        <c-claim-status-card
+                            key={claim.Id}
+                            claim={claim}
+                            just-updated={claim._flash}
+                            onstatuschange={handleStatusChange}>
+                        </c-claim-status-card>
+                    </template>
+                </div>
+            </template>
+
+            <!-- EMPTY -->
+            <template lwc:if={isLoading}></template>
+            <template lwc:else>
+                <template lwc:if={hasClaims}></template>
+                <template lwc:else>
+                    <div class="state">
+                        <lightning-icon icon-name="utility:success" size="small"></lightning-icon>
+                        <span>No open claims. Inbox zero.</span>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,67 @@
+.card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 0.5rem;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card:hover { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
+
+/* Real-time flash when a platform event updates this card */
+.card_flash {
+    animation: flash 1.4s ease-out;
+}
+@keyframes flash {
+    0% { box-shadow: 0 0 0 3px rgba(1, 118, 211, 0.6); transform: translateY(-1px); }
+    100% { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); transform: none; }
+}
+
+.card__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+.card__claimno { font-weight: 700; color: #181818; font-size: 0.95rem; }
+.card__holder { font-size: 0.8rem; color: #747474; }
+
+.card__meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+}
+.meta { display: flex; flex-direction: column; gap: 0.15rem; }
+.meta__label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.04em; color: #939393; }
+.meta__value { font-size: 0.85rem; color: #181818; font-weight: 600; }
+
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 1rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+.badge_new      { background: #eef4ff; color: #0b5cab; }
+.badge_triage   { background: #fff3e6; color: #a85b00; }
+.badge_review   { background: #fef6e6; color: #8a6a00; }
+.badge_approved { background: #e7f5ec; color: #1a6b34; }
+.badge_paid     { background: #1a6b34; color: #fff; }
+.badge_denied   { background: #fbe6e6; color: #a40000; }
+
+.pill {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    width: fit-content;
+}
+.pill_low      { background: #eef1f6; color: #5c6b7a; }
+.pill_medium   { background: #fff3e6; color: #a85b00; }
+.pill_high     { background: #ffe9e0; color: #b4500f; }
+.pill_critical { background: #a40000; color: #fff; }
+
+.card__actions { display: flex; gap: 0.5rem; flex-wrap: wrap; border-top: 1px solid #f0f0f0; padding-top: 0.75rem; }

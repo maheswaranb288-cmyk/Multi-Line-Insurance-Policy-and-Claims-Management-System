@@ -1,0 +1,42 @@
+.header { display: flex; align-items: center; gap: 0.5rem; }
+.header__title { font-weight: 700; }
+
+.live { display: inline-flex; align-items: center; gap: 0.35rem; margin-left: 0.75rem; }
+.live__label { font-size: 0.72rem; color: #747474; font-weight: 600; }
+.live-dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.live-dot_on { background: #2e844a; box-shadow: 0 0 0 0 rgba(46, 132, 74, 0.6); animation: pulse 1.8s infinite; }
+.live-dot_off { background: #c23934; }
+@keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(46, 132, 74, 0.6); }
+    70%  { box-shadow: 0 0 0 7px rgba(46, 132, 74, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(46, 132, 74, 0); }
+}
+
+.body { padding: 0 1rem 1rem; }
+
+.kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 0.85rem;
+}
+
+.state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 2rem;
+    color: #747474;
+}
+.state_error { color: #c23934; }
+
+@media (max-width: 768px) {
+    .kpis { grid-template-columns: repeat(2, 1fr); }
+}

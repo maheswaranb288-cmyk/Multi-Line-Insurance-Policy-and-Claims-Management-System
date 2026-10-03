@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>UPC-360 User</label>
+    <description>Access to UPC-360 claims objects, fields, and the dashboard controller.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+
+    <!-- Apex -->
+    <classAccesses><apexClass>Claims360Controller</apexClass><enabled>true</enabled></classAccesses>
+    <classAccesses><apexClass>ClaimService</apexClass><enabled>true</enabled></classAccesses>
+    <classAccesses><apexClass>ClaimSelector</apexClass><enabled>true</enabled></classAccesses>
+    <classAccesses><apexClass>ClaimProcessingQueueable</apexClass><enabled>true</enabled></classAccesses>
+    <classAccesses><apexClass>ClaimTriggerHandler</apexClass><enabled>true</enabled></classAccesses>
+    <classAccesses><apexClass>TriggerHandler</apexClass><enabled>true</enabled></classAccesses>
+    <classAccesses><apexClass>Logger</apexClass><enabled>true</enabled></classAccesses>
+
+    <!-- Objects -->
+    <objectPermissions>
+        <object>Policy__c</object>
+        <allowCreate>true</allowCreate><allowRead>true</allowRead><allowEdit>true</allowEdit>
+        <allowDelete>false</allowDelete><modifyAllRecords>false</modifyAllRecords><viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <object>Claim__c</object>
+        <allowCreate>true</allowCreate><allowRead>true</allowRead><allowEdit>true</allowEdit>
+        <allowDelete>false</allowDelete><modifyAllRecords>false</modifyAllRecords><viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <object>Claim_Status_History__c</object>
+        <allowCreate>true</allowCreate><allowRead>true</allowRead><allowEdit>false</allowEdit>
+        <allowDelete>false</allowDelete><modifyAllRecords>false</modifyAllRecords><viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <object>Apex_Log__c</object>
+        <allowCreate>true</allowCreate><allowRead>true</allowRead><allowEdit>false</allowEdit>
+        <allowDelete>false</allowDelete><modifyAllRecords>false</modifyAllRecords><viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+
+    <!-- Fields (required / master-detail / auto-number / formula-editable fields intentionally omitted) -->
+    <fieldPermissions><field>Policy__c.Status__c</field><readable>true</readable><editable>true</editable></fieldPermissions>
+    <fieldPermissions><field>Policy__c.Effective_Date__c</field><readable>true</readable><editable>true</editable></fieldPermissions>
+    <fieldPermissions><field>Policy__c.Premium_Amount__c</field><readable>true</readable><editable>true</editable></fieldPermissions>
+
+    <fieldPermissions><field>Claim__c.Claim_Number__c</field><readable>true</readable><editable>true</editable></fieldPermissions>
+    <fieldPermissions><field>Claim__c.Policy__c</field><readable>true</readable><editable>true</editable></fieldPermissions>
+    <fieldPermissions><field>Claim__c.Priority__c</field><readable>true</readable><editable>true</editable></fieldPermissions>
+    <fieldPermissions><field>Claim__c.Claim_Amount__c</field><readable>true</readable><editable>true</editable></fieldPermissions>
+    <fieldPermissions><field>Claim__c.Submitted_Date__c</field><readable>true</readable><editable>true</editable></fieldPermissions>
+    <fieldPermissions><field>Claim__c.Adjuster__c</field><readable>true</readable><editable>true</editable></fieldPermissions>
+    <fieldPermissions><field>Claim__c.Last_Status_Change__c</field><readable>true</readable><editable>true</editable></fieldPermissions>
+    <fieldPermissions><field>Claim__c.Processing_Time_Hours__c</field><readable>true</readable><editable>true</editable></fieldPermissions>
+    <fieldPermissions><field>Claim__c.Age_Days__c</field><readable>true</readable><editable>false</editable></fieldPermissions>
+    <fieldPermissions><field>Claim__c.Is_Open__c</field><readable>true</readable><editable>false</editable></fieldPermissions>
+
+    <fieldPermissions><field>Claim_Status_History__c.Old_Status__c</field><readable>true</readable><editable>false</editable></fieldPermissions>
+    <fieldPermissions><field>Claim_Status_History__c.New_Status__c</field><readable>true</readable><editable>false</editable></fieldPermissions>
+    <fieldPermissions><field>Claim_Status_History__c.Changed_By__c</field><readable>true</readable><editable>false</editable></fieldPermissions>
+    <fieldPermissions><field>Claim_Status_History__c.Changed_At__c</field><readable>true</readable><editable>false</editable></fieldPermissions>
+    <fieldPermissions><field>Claim_Status_History__c.Notes__c</field><readable>true</readable><editable>false</editable></fieldPermissions>
+
+    <fieldPermissions><field>Apex_Log__c.Level__c</field><readable>true</readable><editable>false</editable></fieldPermissions>
+    <fieldPermissions><field>Apex_Log__c.Context__c</field><readable>true</readable><editable>false</editable></fieldPermissions>
+    <fieldPermissions><field>Apex_Log__c.Message__c</field><readable>true</readable><editable>false</editable></fieldPermissions>
+    <fieldPermissions><field>Apex_Log__c.Stack_Trace__c</field><readable>true</readable><editable>false</editable></fieldPermissions>
+</PermissionSet>

@@ -1,0 +1,27 @@
+.tile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    border-radius: 0.5rem;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-left: 4px solid #0176d3;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    height: 100%;
+}
+.tile_warning { border-left-color: #fe9339; }
+.tile_success { border-left-color: #2e844a; }
+.tile__icon { --slds-c-icon-color-foreground-default: #747474; }
+.tile__value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #181818;
+}
+.tile__label {
+    font-size: 0.8rem;
+    color: #747474;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
